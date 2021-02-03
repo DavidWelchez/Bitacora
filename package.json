@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/DavidWelchez/Bitacora/issues"
   },
-  "homepage": "https://github.com/DavidWelchez/Bitacora#readme"
+  "homepage": "https://github.com/DavidWelchez/Bitacora#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
