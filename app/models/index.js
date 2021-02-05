@@ -21,6 +21,7 @@ db.sequelize = sequelize;
 
 db.incidentes = require("./Incidente.js")(sequelize, Sequelize);
 db.plataformas = require("./Plataforma.js")(sequelize, Sequelize);
+db.eventoRiesgo = require("./EventoRiesgo.js")(sequelize, Sequelize);
 
 
 

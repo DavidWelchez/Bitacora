@@ -3,6 +3,8 @@ const { plataformas } = require("../models/index.js");
 module.exports = app => {
     const incidentes = require("../controllers/IncidenteController.js");
     const plataformas = require("../controllers/PlataformaController.js");
+    const eventoRiesgos = require("../controllers/EventoRiesgoController.js");
+
     
   
     var router = require("express").Router();
@@ -33,7 +35,19 @@ module.exports = app => {
     router.delete("/eliminar-plataforma/:id", plataformas.deletePlataforma);
   
     router.delete("/eliminartodo-plataforma", plataformas.deleteAllPlataforma);
-
+    
+    //EVENTO RIESGO
+    router.post("/crear-eventoRiesgos", eventoRiesgos.createEventoRiesgo );
+   
+    router.get("/buscar-eventoRiesgos", eventoRiesgos.findAllEventoRiesgo );
+  
+    router.get("/buscar-eventoRiesgos/:id", eventoRiesgos.findOneEventoRiesgo );
+  
+    router.put("/actualizar-eventoRiesgos/:id", eventoRiesgos.updateEventoRiesgo );
+  
+    router.delete("/eliminar-eventoRiesgos/:id", eventoRiesgos.deleteEventoRiesgo );
+  
+    router.delete("/eliminartodo-eventoRiesgos", eventoRiesgos.deleteAllEventoRiesgo );
     
 
   
