@@ -8,6 +8,8 @@ module.exports = app => {
     const Empleados = require("../controllers/EmpleadoController.js");
     const Proveedores = require("../controllers/ProveedorController.js");
     const CategoriaSoporte = require("../controllers/CategoriaSoporteController.js");
+    const eventos = require("../controllers/EventoController.js");
+
 
 
 
@@ -110,6 +112,20 @@ module.exports = app => {
     router.delete("/eliminar-CategoriaSoporte/:id", CategoriaSoporte.deleteCategoriaSoporte);
   
     router.delete("/eliminartodo-CategoriaSoporte", CategoriaSoporte.deleteAllCategoriaSoporte);
+
+    //RUTAS EVENTO
+
+    router.post("/crear-Evento", eventos.createEvento);
+   
+    router.get("/buscar-Proveedor", eventos.findAllEvento);
+  
+    router.get("/buscar-Proveedor/:id", eventos.findOneEvento);
+  
+    router.put("/actualizar-Proveedor/:id", eventos.updateEvento);
+  
+    router.delete("/eliminar-Proveedor/:id", eventos.deleteEvento);
+  
+    router.delete("/eliminartodo-Proveedor", eventos.deleteAllEvento);
 
 
   
