@@ -6,6 +6,8 @@ module.exports = app => {
     const eventoRiesgos = require("../controllers/EventoRiesgoController.js");
     const factorRiesgos = require("../controllers/FactorRiesgoController.js");
     const Empleados = require("../controllers/EmpleadoController.js");
+    const Proveedores = require("../controllers/ProveedorController.js");
+
 
 
 
@@ -80,6 +82,20 @@ module.exports = app => {
     router.delete("/eliminar-Empleado/:id", Empleados.deleteEmpleado);
   
     router.delete("/eliminartodo-Empleado", Empleados.deleteAllEmpleado);
+    
+    //Rutas Proveedor 
+    router.post("/crear-Proveedor", Proveedores.createProveedor);
+   
+    router.get("/buscar-Proveedor", Proveedores.findAllProveedor);
+  
+    router.get("/buscar-Proveedor/:id", Proveedores.findOneProveedor);
+  
+    router.put("/actualizar-Proveedor/:id", Proveedores.updateProveedor);
+  
+    router.delete("/eliminar-Proveedor/:id", Proveedores.deleteProveedor);
+  
+    router.delete("/eliminartodo-Proveedor", Proveedores.deleteAllProveedor);
+
   
     app.use('/api/prueba', router);
   };
