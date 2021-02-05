@@ -4,6 +4,8 @@ module.exports = app => {
     const incidentes = require("../controllers/IncidenteController.js");
     const plataformas = require("../controllers/PlataformaController.js");
     const eventoRiesgos = require("../controllers/EventoRiesgoController.js");
+    const factorRiesgos = require("../controllers/FactorRiesgoController.js");
+
 
     
   
@@ -49,7 +51,18 @@ module.exports = app => {
   
     router.delete("/eliminartodo-eventoRiesgos", eventoRiesgos.deleteAllEventoRiesgo );
     
-
+    //Rutas FACTOR RIESGO
+    router.post("/crear-factorRiesgos", factorRiesgos.createFactorRiesgo);
+   
+    router.get("/buscar-factorRiesgos", factorRiesgos.findAllFactorRiesgo);
+  
+    router.get("/buscar-factorRiesgos/:id", factorRiesgos.findOneFactorRiesgo);
+  
+    router.put("/actualizar-factorRiesgos/:id", factorRiesgos.updateFactorRiesgo);
+  
+    router.delete("/eliminar-factorRiesgos/:id", factorRiesgos.deleteFactorRiesgo);
+  
+    router.delete("/eliminartodo-factorRiesgos", factorRiesgos.deleteAllFactorRiesgo);
   
     app.use('/api/prueba', router);
   };

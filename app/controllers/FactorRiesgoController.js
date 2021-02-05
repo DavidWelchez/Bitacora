@@ -1,11 +1,11 @@
 const db = require("../models");
-const EventoRiesgo = db.eventoRiesgo;
+const FactorRiesgo = db.factorRiesgos;
 const Op = db.Sequelize.Op;
 
 
-exports.createEventoRiesgo = (req, res) => {
+exports.createFactorRiesgo = (req, res) => {
  
-  if (!req.body.EventoRiesgo) {
+  if (!req.body.factor) {
     res.status(400).send({
       message: "No puede ir vacio"
     });
@@ -13,14 +13,14 @@ exports.createEventoRiesgo = (req, res) => {
   }
 
 
-  const eventoRiesgo = {
-    EventoRiesgo: req.body.EventoRiesgo
-
+  const factorRiesgo = {
+    factor: req.body.factor,
+    eventoRiesgoId: req.body.eventoRiesgoId
 
   };
 
 
-  EventoRiesgo.create(eventoRiesgo)
+  FactorRiesgo.create(factorRiesgo)
     .then(data => {
       res.send(data);
     })
@@ -33,11 +33,11 @@ exports.createEventoRiesgo = (req, res) => {
 };
 
 
-exports.findAllEventoRiesgo = (req, res) => {
-  const EventoRiesgo = req.query.EventoRiesgo;
-  var condition = EventoRiesgo ? { EventoRiesgo: { [Op.like]: `%${EventoRiesgo}%` } } : null;
+exports.findAllFactorRiesgo = (req, res) => {
+  const factor = req.query.factor;
+  var condition = factor ? { factor: { [Op.like]: `%${factor}%` } } : null;
 
-  EventoRiesgo.findAll({ where: condition })
+  FactorRiesgo.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
@@ -50,10 +50,10 @@ exports.findAllEventoRiesgo = (req, res) => {
 };
 
 
-exports.findOneEventoRiesgo = (req, res) => {
+exports.findOneFactorRiesgo = (req, res) => {
   const id = req.params.id;
 
-  EventoRiesgo.findByPk(id)
+  FactoRiesgo.findByPk(id)
     .then(data => {
       res.send(data);
     })
@@ -65,10 +65,10 @@ exports.findOneEventoRiesgo = (req, res) => {
 };
 
 
-exports.updateEventoRiesgo = (req, res) => {
+exports.updateFactorRiesgo = (req, res) => {
   const id = req.params.id;
 
-  EventoRiesgo.update(req.body, {
+  FactorRiesgo.update(req.body, {
     where: { id: id }
   })
     .then(num => {
@@ -90,10 +90,10 @@ exports.updateEventoRiesgo = (req, res) => {
 };
 
 
-exports.deleteEventoRiesgo = (req, res) => {
+exports.deleteFactorRiesgo = (req, res) => {
   const id = req.params.id;
 
-  EventoRiesgo.destroy({
+  FactorRiesgo.destroy({
     where: { id: id }
   })
     .then(num => {
@@ -114,8 +114,8 @@ exports.deleteEventoRiesgo = (req, res) => {
     });
 };
 
-exports.deleteAllEventoRiesgo = (req, res) => {
-    EventoRiesgo.destroy({
+exports.deleteAllFactorRiesgo = (req, res) => {
+    FactoRiesgo.destroy({
     where: {},
     truncate: false
   })

@@ -22,9 +22,12 @@ db.sequelize = sequelize;
 db.incidentes = require("./Incidente.js")(sequelize, Sequelize);
 db.plataformas = require("./Plataforma.js")(sequelize, Sequelize);
 db.eventoRiesgo = require("./EventoRiesgo.js")(sequelize, Sequelize);
+db.factorRiesgos = require("./FactorRiesgo.js")(sequelize, Sequelize);
 
 
 
+
+//Relacion Incidente Plataformas
 db.incidentes.hasMany(db.plataformas, { as: "plataformas" });
 db.plataformas.belongsTo(db.incidentes, {
   foreignKey: "",
@@ -32,6 +35,12 @@ db.plataformas.belongsTo(db.incidentes, {
 });
 
 
+//Relacion Evento Riesgo --Factor Riesgo
+db.eventoRiesgo.hasMany(db.factorRiesgos, { as: "factorRiesgos" });
+db.factorRiesgos.belongsTo(db.eventoRiesgo, {
+  foreignKey: "eventoRiesgoId",
+  as: "eventoRiesgo",
+});
 
 
 
