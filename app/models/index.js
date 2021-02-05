@@ -25,6 +25,8 @@ db.eventoRiesgo = require("./EventoRiesgo.js")(sequelize, Sequelize);
 db.factorRiesgos = require("./FactorRiesgo.js")(sequelize, Sequelize);
 db.empleados = require("./Empleado.js")(sequelize, Sequelize);
 db.proveedores = require("./Proveedor.js")(sequelize, Sequelize);
+db.categoriaSoportes = require("./CategoriaSoporte.js")(sequelize, Sequelize);
+
 
 
 

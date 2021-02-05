@@ -7,6 +7,8 @@ module.exports = app => {
     const factorRiesgos = require("../controllers/FactorRiesgoController.js");
     const Empleados = require("../controllers/EmpleadoController.js");
     const Proveedores = require("../controllers/ProveedorController.js");
+    const CategoriaSoporte = require("../controllers/CategoriaSoporteController.js");
+
 
 
 
@@ -95,6 +97,20 @@ module.exports = app => {
     router.delete("/eliminar-Proveedor/:id", Proveedores.deleteProveedor);
   
     router.delete("/eliminartodo-Proveedor", Proveedores.deleteAllProveedor);
+
+    //RUTAS CATEGORIA SOPORTE
+    router.post("/crear-CategoriaSoporte", CategoriaSoporte.createCategoriaSoporte);
+   
+    router.get("/buscar-CategoriaSoporte", CategoriaSoporte.findAllCategoriaSoporte);
+  
+    router.get("/buscar-CategoriaSoporte/:id", CategoriaSoporte.findOneCategoriaSoporte);
+  
+    router.put("/actualizar-CategoriaSoporte/:id", CategoriaSoporte.updateCategoriaSoporte);
+  
+    router.delete("/eliminar-CategoriaSoporte/:id", CategoriaSoporte.deleteCategoriaSoporte);
+  
+    router.delete("/eliminartodo-CategoriaSoporte", CategoriaSoporte.deleteAllCategoriaSoporte);
+
 
   
     app.use('/api/prueba', router);
