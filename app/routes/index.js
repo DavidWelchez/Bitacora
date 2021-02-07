@@ -9,6 +9,8 @@ module.exports = app => {
     const Proveedores = require("../controllers/ProveedorController.js");
     const CategoriaSoporte = require("../controllers/CategoriaSoporteController.js");
     const eventos = require("../controllers/EventoController.js");
+    const bitacoras = require("../controllers/BitacoraController.js");
+
 
 
 
@@ -126,6 +128,21 @@ module.exports = app => {
     router.delete("/eliminar-Proveedor/:id", eventos.deleteEvento);
   
     router.delete("/eliminartodo-Proveedor", eventos.deleteAllEvento);
+
+
+    //RUTAS PARA BITACORA 
+    router.post("/crear-Bitacora", bitacoras.createBitacora);
+   
+    router.get("/buscar-Bitacora", bitacoras.findAllBitacora);
+  
+    router.get("/buscar-Bitacora/:id", bitacoras.findOneBitacora);
+  
+    router.put("/actualizar-Bitacora/:id", bitacoras.updateBitacora);
+  
+    router.delete("/eliminar-Bitacora/:id", bitacoras.deleteBitacora);
+  
+    router.delete("/eliminartodo-Bitacora", bitacoras.deleteAllBitacora);
+
 
 
   
