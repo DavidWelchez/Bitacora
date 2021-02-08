@@ -28,6 +28,8 @@ db.proveedores = require("./Proveedor.js")(sequelize, Sequelize);
 db.categoriaSoportes = require("./CategoriaSoporte.js")(sequelize, Sequelize);
 db.eventos = require("./Evento.js")(sequelize, Sequelize);
 db.bitacoras = require("./Bitacora.js")(sequelize, Sequelize);
+db.users = require("./user.js")(sequelize, Sequelize);
+
 
 
 
